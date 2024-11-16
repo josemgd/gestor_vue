@@ -1,12 +1,36 @@
 <template>
   <div id="app">
-    <nav>
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+    <!-- Barra de navegación responsiva -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark custom-navbar">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Contenedor de los enlaces de navegación -->
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <router-link class="navbar-brand" to="/"><i class="bi bi-house-door-fill"></i>Home</router-link>
+          </li>
+          <li class="nav-item">
+            <router-link class="nav-link" to="/addtask"><i class="bi bi-plus"></i>Agregar Tarea</router-link>
+          </li>
+          <li class="nav-item">
+            <router-link class="nav-link" to="/tasklist"><i class="bi bi-card-checklist"></i>Lista de Tareas</router-link>
+          </li>
+          <li class="nav-item">
+            <router-link class="nav-link" to="/combinedview"><i class="bi bi-columns"></i>Vista Combinada</router-link>
+
+          </li>
+        </ul>
+      </div>
     </nav>
-    <router-view/>
+
+    <!-- El componente cargado de acuerdo a la ruta -->
+    <router-view />
   </div>
 </template>
+
 
 <style>
 #app {
@@ -17,16 +41,33 @@
   color: #2c3e50;
 }
 
-nav {
-  padding: 30px;
+/* Personalización del navbar */
+.custom-navbar {
+  padding: 10px 20px;
+  background-color: #1a2c54; /* Color de fondo */
 }
 
-nav a {
+.custom-navbar .navbar-brand {
+  color: rgb(238, 238, 238) !important;
   font-weight: bold;
-  color: #2c3e50;
+  font-size: 1.5rem;
 }
 
-nav a.router-link-exact-active {
-  color: #42b983;
+.custom-navbar .navbar-brand:hover {
+  color: #4d7b93 !important;
+}
+
+.custom-navbar .nav-link {
+  color: white !important; /* Color de enlaces */
+}
+
+.custom-navbar .nav-link:hover {
+  color: #4d7b93 !important; /* Color al pasar el mouse */
+}
+
+/* Estilo cuando el enlace está activo */
+.custom-navbar .router-link-exact-active {
+  color: #4d7b93 !important;
+  font-weight: bold;
 }
 </style>
